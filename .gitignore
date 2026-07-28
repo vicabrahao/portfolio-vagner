@@ -1,0 +1,12 @@
+# Config do Claude Code (não vai para o GitHub)
+.claude/
+
+# Arquivos de trabalho / fontes de dados brutas (não fazem parte do site publicado)
+*.xlsx
+*.py
+*.jpeg
+js/
+
+# Sistema
+Thumbs.db
+.DS_Store

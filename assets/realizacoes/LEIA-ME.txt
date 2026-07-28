@@ -1,0 +1,36 @@
+FOTOS DAS REALIZAÇÕES (matérias)
+=================================
+
+Coloque as fotos nesta pasta usando EXATAMENTE estes nomes de arquivo.
+Assim que o arquivo existir, a foto aparece sozinha na matéria (ao clicar no card).
+Formato recomendado: JPG, proporção 16:9 (ex.: 1200 x 675 px).
+
+PREFEITO DE CHÁCARA
+  plano-diretor.jpg        -> Plano Diretor Participativo (2008)
+  assistencia-social.jpg   -> Rede de assistência social estruturada
+  cargos-tecnicos.jpg      -> Novos cargos técnicos
+  cooperacao-regional.jpg  -> Liderança intermunicipal
+
+VEREADOR DE JUIZ DE FORA
+  upa-nordeste.jpg         -> UPA 24h da região Nordeste
+  escola-marilia.jpg       -> Escola Marília de Dirceu (Filgueiras)
+  onibus-ufjf.jpg          -> Nova linha de ônibus até a UFJF
+  agua-humaita.jpg         -> Água potável em Humaitá
+  torres-celular.jpg       -> Torres de celular nos distritos
+  asfalto.jpg              -> Asfalto e recapeamento
+  distritos.jpg            -> Novos distritos
+  poco-humaita.jpg         -> Poço artesiano em Humaitá
+  radares-br267.jpg        -> Radares na BR-267
+  esgoto-diomar.jpg        -> Rede de esgoto na Rua Diomar Monteiro
+  ponte-filgueiras.jpg     -> Reforma de ponte na Estrada Velha de Filgueiras
+  recapeamento-grama.jpg   -> Recapeamento entre Grama e Filgueiras
+  vestiario-filgueiras.jpg -> Vestiário no campo de Filgueiras
+  drenagem-humaita.jpg     -> Nova drenagem na ponte de Humaitá
+  humaita-148.jpg          -> Especial Humaitá — 148 anos
+  humaita-agradece.jpg     -> Comunidade de Humaitá agradece
+
+Enquanto a foto não existir, a matéria mostra um espaço reservado
+("Foto da entrega (a adicionar)") — nada quebra.
+
+Observação: nas matérias vindas das redes sociais, a "Fonte" no rodapé
+do card leva ao post original no Facebook/Instagram.
