@@ -1598,7 +1598,7 @@
       const yearsEl = document.getElementById("prod-years");
       if (yearsEl) {
         const years = [...new Set(data.itens.map((it) => String(it.a)).filter(Boolean))].sort().reverse();
-        if (data.itens.length > 40 && years.length >= 3) {
+        if (years.length >= 2) {
           yearsEl.style.display = "";
           yearsEl.innerHTML = ["todos"].concat(years).map((y) =>
             '<button class="filter' + (y === "todos" ? " is-active" : "") + '" data-year="' + y + '">' + (y === "todos" ? "Todos os anos" : y) + '</button>'
