@@ -140,14 +140,14 @@
 
   /* STATS */
   .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
-  .stat-tile { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 20px; transition: transform .2s ease, box-shadow .2s ease; }
+  .stat-tile { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 20px; transition: transform .2s ease, box-shadow .2s ease; display: flex; flex-direction: column; }
   .stat-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
   .stat-tile strong { display: block; font-size: 2rem; font-weight: 800; letter-spacing: -.02em; color: var(--accent); line-height: 1; }
   .stat-tile span { display: block; margin-top: 8px; font-size: .9rem; color: var(--text-soft); }
   .stat-tile.featured { grid-column: span 2; background: var(--accent); border-color: var(--accent); }
   .stat-tile.featured strong { color: #fff; font-size: 2.75rem; }
   .stat-tile.featured span { color: rgba(255,255,255,.85); font-weight: 500; }
-  .stat-tile.link { cursor: pointer; color: inherit; display: block; }
+  .stat-tile.link { cursor: pointer; color: inherit; display: flex; }
   .stat-tile.link:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: transparent; }
   .stat-tile.areafiltro { cursor: pointer; }
   .stat-tile.areafiltro:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
@@ -157,7 +157,7 @@
   .area-clear { background: none; border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; font: inherit; font-size: .8rem; color: var(--accent); cursor: pointer; }
   .area-clear:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
   li.area-hidden { display: none; }
-  .stat-more { display: block; margin-top: 12px; font-size: .78rem; font-weight: 700; color: var(--accent); }
+  .stat-more { display: block; margin-top: auto; padding-top: 12px; font-size: .78rem; font-weight: 700; color: var(--accent); }
   .stat-tile.featured .stat-more { color: rgba(255,255,255,.92); }
 
   /* PRODUÇÃO — detalhe por categoria */
@@ -223,7 +223,7 @@
 
   /* REALIZAÇÕES */
   .deeds-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-  .deed-card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 22px; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; color: inherit; display: block; }
+  .deed-card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 22px; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; color: inherit; display: flex; flex-direction: column; }
   .deed-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: transparent; }
   .deed-tag { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); }
   .deed-card h3 { margin: 8px 0 8px; }
@@ -235,14 +235,13 @@
   .filter.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
   .deed-card[role="button"] { cursor: pointer; }
   .deed-card .deed-article { display: none; }
-  .deed-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; }
+  .deed-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 16px; }
   .deed-more { color: var(--accent); font-weight: 600; font-size: .85rem; white-space: nowrap; }
   .deed-card:hover .deed-more { text-decoration: underline; }
   .deeds-carousel { position: relative; }
   .deeds-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 4px 2px 14px; scrollbar-width: none; }
   .deeds-track::-webkit-scrollbar { display: none; }
-  .deeds-track > .deed-card { flex: 0 0 calc((100% - 48px) / 3); scroll-snap-align: start; display: flex; flex-direction: column; }
-  .deeds-track > .deed-card .deed-foot { margin-top: auto; padding-top: 16px; }
+  .deeds-track > .deed-card { flex: 0 0 calc((100% - 48px) / 3); scroll-snap-align: start; }
   .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); color: var(--accent); cursor: pointer; box-shadow: var(--shadow); display: grid; place-items: center; transition: background .2s ease, color .2s ease, opacity .2s ease; }
   .carousel-btn.prev { left: -20px; }
   .carousel-btn.next { right: -20px; }
