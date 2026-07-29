@@ -238,6 +238,17 @@
   .deed-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; }
   .deed-more { color: var(--accent); font-weight: 600; font-size: .85rem; white-space: nowrap; }
   .deed-card:hover .deed-more { text-decoration: underline; }
+  .deeds-carousel { position: relative; }
+  .deeds-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 4px 2px 14px; scrollbar-width: none; }
+  .deeds-track::-webkit-scrollbar { display: none; }
+  .deeds-track > .deed-card { flex: 0 0 calc((100% - 48px) / 3); scroll-snap-align: start; }
+  .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); color: var(--accent); cursor: pointer; box-shadow: var(--shadow); display: grid; place-items: center; transition: background .2s ease, color .2s ease, opacity .2s ease; }
+  .carousel-btn.prev { left: -20px; }
+  .carousel-btn.next { right: -20px; }
+  .carousel-btn:hover { background: var(--accent); color: #fff; }
+  .carousel-btn:disabled { opacity: 0; pointer-events: none; }
+  @media (max-width: 900px) { .deeds-track > .deed-card { flex: 0 0 calc((100% - 24px) / 2); } }
+  @media (max-width: 620px) { .deeds-track > .deed-card { flex: 0 0 86%; } .carousel-btn { display: none; } }
 
   /* MATÉRIA (modal) */
   .modal-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(16,24,40,.55); backdrop-filter: blur(2px); display: flex; align-items: flex-start; justify-content: center; padding: 5vh 20px; overflow-y: auto; }
@@ -257,6 +268,8 @@
   .ig-embed { margin: 6px 0 16px; text-align: center; }
   .ig-embed .instagram-media { margin: 0 auto !important; }
   .ig-cap { text-align: center; font-size: .82rem; color: var(--text-soft); margin-top: 8px; }
+  .yt-embed { margin: 10px 0 16px; width: 100%; aspect-ratio: 16 / 9; }
+  .yt-embed iframe { width: 100%; height: 100%; border: 0; border-radius: 10px; display: block; }
   .modal-article em { color: var(--text-soft); font-size: .88rem; }
   .modal-source { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); font-size: .9rem; color: var(--text-soft); }
   .modal-source a { color: var(--accent); font-weight: 600; word-break: break-all; }
@@ -576,25 +589,47 @@
             <h2>Principais entregas</h2>
             <p class="section-sub">Algumas das conquistas da gestão em Chácara e do mandato em Juiz de Fora.</p>
           </header>
-          <div class="deeds-grid">
-            <a class="deed-card" href="#realizacoes" data-link>
-              <span class="deed-tag">Saúde</span>
-              <h3>Pronto Atendimento 24h da região Nordeste</h3>
-              <p>Pronto atendimento de urgência 24h, no padrão de UPA, para a região Nordeste.</p>
-              <div class="deed-foot"><span class="deed-role">Vereador de JF</span><span class="deed-more">Ver mais →</span></div>
-            </a>
-            <a class="deed-card" href="#realizacoes" data-link>
-              <span class="deed-tag">Planejamento urbano</span>
-              <h3>Plano Diretor Participativo (2008)</h3>
-              <p>Sancionou o Plano Diretor, base do planejamento urbano e da organização do município.</p>
-              <div class="deed-foot"><span class="deed-role">Prefeito de Chácara</span><span class="deed-more">Ver mais →</span></div>
-            </a>
-            <a class="deed-card" href="#realizacoes" data-link>
-              <span class="deed-tag">Educação</span>
-              <h3>Escola Marília de Dirceu (Filgueiras)</h3>
-              <p>Articulação para a ampliação de salas de aula, vestiário e refeitório.</p>
-              <div class="deed-foot"><span class="deed-role">Vereador de JF</span><span class="deed-more">Ver mais →</span></div>
-            </a>
+          <div class="deeds-carousel">
+            <button class="carousel-btn prev" type="button" aria-label="Ver anteriores"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <div class="deeds-track">
+              <a class="deed-card home-deed" href="#realizacoes" data-open="Pronto Atendimento 24h da região Nordeste">
+                <span class="deed-tag">Saúde</span>
+                <h3>Pronto Atendimento 24h da região Nordeste</h3>
+                <p>Pronto atendimento de urgência 24h, no padrão de UPA, para a região Nordeste.</p>
+                <div class="deed-foot"><span class="deed-role">Vereador de JF</span><span class="deed-more">Ver matéria →</span></div>
+              </a>
+              <a class="deed-card home-deed" href="#realizacoes" data-open="Plano Diretor Participativo (2008)">
+                <span class="deed-tag">Planejamento urbano</span>
+                <h3>Plano Diretor Participativo (2008)</h3>
+                <p>Sancionou o Plano Diretor, base do planejamento urbano e da organização do município.</p>
+                <div class="deed-foot"><span class="deed-role">Prefeito de Chácara</span><span class="deed-more">Ver matéria →</span></div>
+              </a>
+              <a class="deed-card home-deed" href="#realizacoes" data-open="Escola Marília de Dirceu (Filgueiras)">
+                <span class="deed-tag">Educação</span>
+                <h3>Escola Marília de Dirceu (Filgueiras)</h3>
+                <p>Articulação para a ampliação de salas de aula, vestiário e refeitório.</p>
+                <div class="deed-foot"><span class="deed-role">Vereador de JF</span><span class="deed-more">Ver matéria →</span></div>
+              </a>
+              <a class="deed-card home-deed" href="#realizacoes" data-open="Poço artesiano em Humaitá">
+                <span class="deed-tag">Saneamento</span>
+                <h3>Poço artesiano em Humaitá</h3>
+                <p>Acompanhamento da perfuração do poço artesiano para abastecer o distrito de Humaitá.</p>
+                <div class="deed-foot"><span class="deed-role">Vereador de JF</span><span class="deed-more">Ver matéria →</span></div>
+              </a>
+              <a class="deed-card home-deed" href="#realizacoes" data-open="Torres de celular nos distritos">
+                <span class="deed-tag">Conectividade</span>
+                <h3>Torres de celular nos distritos</h3>
+                <p>Telefonia celular levada a Humaitá, Valadares, Penido, Monte Verde e Caeté.</p>
+                <div class="deed-foot"><span class="deed-role">Vereador de JF</span><span class="deed-more">Ver matéria →</span></div>
+              </a>
+              <a class="deed-card home-deed" href="#realizacoes" data-open="Novos distritos">
+                <span class="deed-tag">Desenvolvimento rural</span>
+                <h3>Novos distritos</h3>
+                <p>Criação de distritos (Humaitá, Valadares, Penido, Monte Verde e Caeté) para destravar investimentos.</p>
+                <div class="deed-foot"><span class="deed-role">Vereador de JF</span><span class="deed-more">Ver matéria →</span></div>
+              </a>
+            </div>
+            <button class="carousel-btn next" type="button" aria-label="Ver próximas"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
           </div>
           <div class="section-cta">
             <a href="#realizacoes" class="btn btn-primary" data-link>Ver todas as entregas →</a>
@@ -755,6 +790,7 @@
               <div class="deed-article" hidden>
                 <p>A chegada da telefonia celular foi consequência da criação dos distritos: com o novo status, as localidades passaram a atrair investimentos do Estado e da União.</p>
                 <p>Foram contemplados Humaitá, Valadares, Penido, Monte Verde e Caeté — e, na sequência, vieram também água potável, calçamento, asfalto, iluminação de LED e escola em tempo integral.</p>
+                <div class="yt-embed"><iframe src="https://www.youtube.com/embed/N45A0dD77xQ" title="Sinal de telefonia nos distritos — JFTV Câmara" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
               </div>
             </article>
 
@@ -777,6 +813,7 @@
               <div class="deed-article" hidden>
                 <p>Ao chegar a Juiz de Fora, Vagner percebeu que, para receber investimentos do Estado e do Governo Federal, as localidades precisavam deixar de ser tratadas como núcleo e passar a ser distrito.</p>
                 <p>Daí a necessidade de criar distritos como Humaitá, Valadares, Penido, Monte Verde e Caeté — o que destravou telefonia, água potável, calçamento, asfalto, iluminação de LED e até escola em tempo integral em um deles.</p>
+                <div class="yt-embed"><iframe src="https://www.youtube.com/embed/doSbqj_FlQo" title="Café com Política — os distritos de Juiz de Fora (JFTV Câmara)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
               </div>
             </article>
 
@@ -786,8 +823,8 @@
               <p>Acompanhamento da perfuração do poço artesiano para abastecer o distrito de Humaitá.</p>
               <div class="deed-foot"><span class="deed-role">Vereador de JF</span><span class="deed-more">Ver matéria →</span></div>
               <div class="deed-article" hidden>
-                <p>Em outubro de 2017, Vagner de Oliveira acompanhou a perfuração do poço artesiano no distrito de Humaitá, ao lado da Cesama e de moradores da região.</p>
-                <p>A obra atendeu a uma antiga reivindicação da comunidade pelo abastecimento de água potável.</p>
+                <p>Em 2017, Vagner de Oliveira esteve em Humaitá ao lado do deputado estadual Isauro Calais, do diretor operacional da Cesama, Márcio Pessoa, e de representantes e moradores da comunidade, acompanhando de perto a perfuração de um poço artesiano realizada pela Copasa.</p>
+                <p>A ação foi resultado de articulação e diálogo com os órgãos responsáveis, atendendo a uma antiga reivindicação da população — um trabalho voltado a melhorias concretas e mais qualidade de vida para os moradores de Humaitá.</p>
               </div>
             </article>
 
@@ -1736,6 +1773,13 @@
         card.addEventListener("click", () => openDeed(card));
         card.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openDeed(card); } });
       });
+      document.querySelectorAll(".home-deed[data-open]").forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const alvo = (a.dataset.open || "").trim();
+          const card = [...document.querySelectorAll(".deed-card[data-category]")].find((c) => (c.querySelector("h3")?.textContent || "").trim() === alvo);
+          if (card) { e.preventDefault(); openDeed(card); }
+        });
+      });
       closeBtn.addEventListener("click", closeDeed);
       modal.addEventListener("click", (e) => { if (e.target === modal) closeDeed(); });
       document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hidden) closeDeed(); });
@@ -1758,6 +1802,24 @@
         form.reset();
       });
     }
+
+    /* ---------- Carrossel de entregas ---------- */
+    document.querySelectorAll(".deeds-carousel").forEach((car) => {
+      const track = car.querySelector(".deeds-track");
+      const prev = car.querySelector(".carousel-btn.prev");
+      const next = car.querySelector(".carousel-btn.next");
+      if (!track) return;
+      const step = () => { const c = track.querySelector(".deed-card"); return c ? c.offsetWidth + 24 : 300; };
+      const update = () => {
+        if (prev) prev.disabled = track.scrollLeft <= 4;
+        if (next) next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      };
+      if (prev) prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+      if (next) next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
+      track.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update);
+      update();
+    });
 
     /* ---------- Ano no rodapé ---------- */
     const year = document.getElementById("year");
